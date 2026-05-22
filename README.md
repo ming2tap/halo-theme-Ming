@@ -26,7 +26,7 @@
 |--------|------|
 | **精简模块** | 删除"个人装备"模块，减少不必要的设置项和模板文件 |
 | **背景设置优化** | 简化背景选项逻辑，纯色模式固定为 `#f5f5f5` |
-| **页脚信息** | 更新版权信息为 Ming，链接改为 https://11ao.cn |
+
 
 ### 代码质量
 
@@ -71,11 +71,7 @@
 
 ## 安装方式
 
-### 方式一：应用市场
-
-前往 Halo 官网应用市场下载并安装
-
-### 方式二：GitHub 安装
+### 方式一：GitHub 安装
 
 ```bash
 # 下载主题包
@@ -84,7 +80,7 @@ git clone https://github.com/ming2tap/halo-theme-Ming.git
 # 或将 halo-theme-Ming.zip 上传到 themes 目录
 ```
 
-### 方式三：直接上传
+### 方式二：直接上传
 
 在 Halo 后台 → 主题 → 安装主题，上传 `halo-theme-Ming.zip`
 
@@ -108,4 +104,3 @@ git clone https://github.com/ming2tap/halo-theme-Ming.git
 
 - [GitHub 仓库](https://github.com/ming2tap/halo-theme-Ming)
 - [问题反馈](https://github.com/ming2tap/halo-theme-Ming/issues)
-- [作者网站](https://11ao.cn)
