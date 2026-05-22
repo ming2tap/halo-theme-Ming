@@ -7,11 +7,6 @@
 
 [主题预览](https://11ao.cn/)
 
----
-![Demo1](https://upyun.breezecloud.cn/CDN/info/3b68717e-9e1a-4c65-beda-fa65ce94069a.png)
- ![Demo2](https://upyun.breezecloud.cn/CDN/info/165c98d3-ee1c-471b-8c89-3396ffd15c68.png)
-  ![Demo3](https://upyun.breezecloud.cn/CDN/info/a0a9e39f-e553-4f25-9dc8-0e7ce854c2dd.png)
-  ![Demo4](https://upyun.breezecloud.cn/CDN/info/cdd2a2fc-4539-41bb-b9ca-e837c3802901.png)
 
 ## 特性
 
@@ -27,6 +22,11 @@
 - [x] [友情链接](https://github.com/halo-sigs/plugin-links)（插件）
 - [x] [回忆相册](https://github.com/halo-sigs/plugin-photos)（插件）
 - [x] [个人装备](https://11ao.cn/item)（主题自带）
+
+个人装备 创建页面
+需要创建一个单页，模板选择 "我的设备"（equipment.html），页面内容会显示在设备列表下方。
+
+此功能适合展示个人数码装备、工作环境、生产力工具等。
 
 ![image](https://github.com/user-attachments/assets/917e618f-c840-4c12-8466-f2a3ced7e87e)
 

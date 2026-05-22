@@ -16,10 +16,10 @@
                  class="link-box dark:bg-zinc-800 dark:!border-zinc-700 post-card"
                  th:attr="style=|--delay:${(groupStat.index * 0.15) + (linkStat.index + 1) * 0.05}s;|">
                 <div class="link-img-box">
-                    <img class="link-img lazyload"
-                         th:src="${theme.config.layout.web_loading_img}"
-                         th:data-src="${link.spec.logo}"
-                         th:alt="${link.spec.displayName}" />
+                    <img class="link-img"
+                         th:src="${link.spec.logo}"
+                         th:alt="${link.spec.displayName}"
+                         loading="lazy" />
                 </div>
                 <a class="link-img-a hover:!underline"
                    th:href="${link.spec.url}"
