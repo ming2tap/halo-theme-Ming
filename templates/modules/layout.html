@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN" th:fragment="html (title,content,head)" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title th:text="${#strings.defaultString(title, site.title)}"></title>
+
+<!-- 主题样式 -->
+<link rel="stylesheet" th:href="@{/themes/theme-Ying/assets/css/output.css}" />
+<link rel="stylesheet" th:href="@{/themes/theme-Ying/assets/css/main.css}" />
+
+<!-- 自定义图标 (本地) -->
+<link rel="stylesheet" th:href="@{/themes/theme-Ying/assets/css/iconfont.css}" />
+
+<script th:src="@{/themes/theme-Ying/assets/js/pjax/pjax.min.js}"></script>
+<script th:src="@{/themes/theme-Ying/assets/js/init.js}" defer></script>
+<th:block th:if="${head != null}"><th:block th:replace="${head}"/></th:block>
+</head>
+<body class="bg-gray-100 flex dark:!bg-gray-800/80 dark:text-gray-200 page-container">
+<div th:replace="~{modules/nav}"></div>
+<button aria-label="返回顶部" id="back-to-top" class="zindex fixed bottom-4 right-4 w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg transition-opacity duration-300 hover:bg-blue-600 flex items-center justify-center opacity-0 pointer-events-none"><i class="iconfont icon-ri-arrow-up-s-line text-xl"></i></button>
+<div id="pjax-content" class="action"><th:block th:replace="${content}" /></div>
+<div th:replace="~{modules/footer}"></div>
+</body>
+</html>

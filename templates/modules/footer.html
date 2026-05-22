@@ -1,0 +1,9 @@
+<footer class="footer text-right text-gray-500 text-xs mt-5 pt-5 dark:!border-gray-300/50 border-solid border-t border-gray-100">
+    <nav class="flex flex-col gap-1">
+        <p> © [[${theme.config.footer_card.footer_time}]] - <span id="currentYear"></span> <a class="footercolor" th:href="${theme.config.footer_card.footer_copyright_url}" target="_blank"><span th:text="${theme.config.footer_card.footer_copyright_name}"></span></a></p>
+        <p>Powered by <a class="footercolor" href="https://www.halo.run/">Halo</a> Theme by <a class="footercolor" href="https://skylan.cc">Ying</a></p>
+        <p><a class="footercolor" href="https://beian.miit.gov.cn/" target="_blank"><span th:text="${theme.config.footer_card.footer_icp}"></span></a></p>
+        <p><a class="footercolor flex items-center justify-end gap-1" th:href="|https://beian.mps.gov.cn/#/query/webSearch?code=${theme.config.footer_card.footer_ga}&qymc=&type=0|" target="_blank"><img th:if="${not #strings.isEmpty(theme.config.footer_card.footer_ga)}" class="h-3 w-3" th:src="@{/themes/theme-Ying/assets/images/beian.png}" th:alt="公安备案"><span th:text="${theme.config.footer_card.footer_ga}"></span></a></p>
+    </nav><halo:footer />
+</footer>
+</main>

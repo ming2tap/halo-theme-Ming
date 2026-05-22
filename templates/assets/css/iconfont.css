@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "iconfont";
+  src: url('iconfont.woff2') format('woff2');
+  font-display: swap;
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ri-arrow-up-s-line:before { content: "\e60f"; }
+.icon-ri-close-line:before { content: "\e62d"; }
+.icon-ri_menu-line:before { content: "\e689"; }
+.icon-ri-search-line:before { content: "\e8f8"; }
+.icon-ri-quill-pen-line:before { content: "\ebd7"; }
+.icon-ri-rss-fill:before { content: "\ebe3"; }
+.icon-ri-moon-line:before { content: "\ee09"; }
+.icon-ri-sun-line:before { content: "\ee1e"; }
+.icon-ri-github-fill:before { content: "\e8a2"; }
+.icon-ri-qq-fill:before { content: "\e8f5"; }
+.icon-ri-wechat-fill:before { content: "\e98e"; }
+.icon-ri-weibo-fill:before { content: "\e98f"; }
+.icon-ri-zhihu-fill:before { content: "\ea89"; }
+.icon-ri-instagram-fill:before { content: "\eafa"; }
+.icon-ri-telegram-fill:before { content: "\ebd6"; }
+.icon-ri-facebook-fill:before { content: "\ee64"; }
+.icon-ri-subway-fill:before { content: "\e8d2"; }
+.icon-ri-bilibili-fill:before { content: "\e9a2"; }
+.icon-ri-discord-fill:before { content: "\e9de"; }
+.icon-ri-heart-fill:before { content: "\e8c3"; }
+.icon-ri-heart-line:before { content: "\e8c4"; }
+.icon-ri-message-3-line:before { content: "\e8ec"; }
+.icon-ri-corner-down-right-line:before { content: "\e8a8"; }
