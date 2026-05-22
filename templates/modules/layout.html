@@ -16,7 +16,7 @@
 <script th:src="@{/themes/theme-Ming/assets/js/init.js}" defer></script>
 <th:block th:if="${head != null}"><th:block th:replace="${head}"/></th:block>
 </head>
-<body th:style="${theme.config.layout.header_background_type == 'manual' ? 'background-color: #' + theme.config.layout.header_background : (theme.config.layout.header_background_type == 'image' ? 'background-image: url(' + theme.config.layout.header_background_image + '); background-size: cover; background-attachment: fixed;' : 'background-image: url(/themes/theme-Ming/assets/images/texture.png); background-repeat: repeat; background-color: #' + theme.config.layout.header_background_style1)}" class="bg-gray-100 flex dark:!bg-gray-800/80 dark:text-gray-200 page-container">
+<body th:style="${theme.config.layout.header_background_type == 'manual' ? 'background-color: #f5f5f5' : (theme.config.layout.header_background_type == 'image' ? 'background-image: url(' + theme.config.layout.header_background_image + '); background-size: cover; background-attachment: fixed;' : 'background-image: url(/themes/theme-Ming/assets/images/texture.png); background-repeat: repeat;')}" class="bg-gray-100 flex dark:!bg-gray-800/80 dark:text-gray-200 page-container">
 <div th:replace="~{modules/nav}"></div>
 <button aria-label="返回顶部" id="back-to-top" class="zindex fixed bottom-4 right-4 w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg transition-opacity duration-300 hover:bg-blue-600 flex items-center justify-center opacity-0 pointer-events-none"><i class="iconfont icon-ri-arrow-up-s-line text-xl"></i></button>
 <div id="pjax-content" class="action"><th:block th:replace="${content}" /></div>

@@ -9,6 +9,8 @@ spec:
       formSchema:
         - $formkit: select
           name: header_background_type
+          id: header_background_type
+          key: header_background_type
           label: 网站背景
           value: manual
           options:
@@ -19,27 +21,19 @@ spec:
             - label: 样式 1
               value: style1
 
-        - $formkit: color
-          if: "$get(header_background_type).value === manual"
-          name: header_background
-          label: 设置背景颜色
-          value: ffffff
-
         - $formkit: attachment
           if: "$get(header_background_type).value === image"
           name: header_background_image
+          id: header_background_image
+          key: header_background_image
           label: 网站背景图片
-
-        - $formkit: color
-          if: "$get(header_background_type).value === style1"
-          name: header_background_style1
-          label: 设置主题样式 1 背景颜色
-          value: ffffff
 
         - $formkit: attachment
           name: web_loading_img
+          id: web_loading_img
+          key: web_loading_img
           label: 图片懒加载占位符
-          value: /themes/theme-Ying/assets/images/loading.gif
+          value: /themes/theme-Ming/assets/images/loading.gif
 
         - $formkit: select
           name: post_cover_set
