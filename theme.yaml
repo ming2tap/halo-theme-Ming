@@ -3,12 +3,6 @@ kind: Theme
 metadata:
   name: theme-Ming
 spec:
-  customTemplates:
-    page:
-      - name: 我的设备
-        description: 用于展示个人设备
-        screenshot: 
-        file: equipment.html
   displayName: Ming
   author:
     name: Ming
