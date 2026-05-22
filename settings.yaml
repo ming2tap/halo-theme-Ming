@@ -1,0 +1,227 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: theme-Ming-setting
+spec:
+  forms:
+    - group: layout
+      label: 基础样式设置
+      formSchema:
+        - $formkit: select
+          name: header_background_type
+          label: 网站背景
+          value: manual
+          options:
+            - label: 纯色
+              value: manual
+            - label: 图片
+              value: image
+            - label: 样式 1
+              value: style1
+
+        - $formkit: color
+          if: "$get(header_background_type).value === manual"
+          name: header_background
+          label: 设置背景颜色
+          value: ffffff
+
+        - $formkit: attachment
+          if: "$get(header_background_type).value === image"
+          name: header_background_image
+          label: 网站背景图片
+
+        - $formkit: color
+          if: "$get(header_background_type).value === style1"
+          name: header_background_style1
+          label: 设置主题样式 1 背景颜色
+          value: ffffff
+
+        - $formkit: attachment
+          name: web_loading_img
+          label: 图片懒加载占位符
+          value: /themes/theme-Ying/assets/images/loading.gif
+
+        - $formkit: select
+          name: post_cover_set
+          label: 首页文章缩略图设置
+          value: off
+          options:
+            - label: 关闭
+              value: off
+            - label: 开启
+              value: open
+
+        - $formkit: select
+          name: post_time_set
+          label: 文章发布时间格式
+          value: off
+          options:
+            - label: 中式 [九月 24, 2024]
+              value: off
+            - label: 英式 [September 24, 2024]
+              value: open
+
+        - $formkit: select
+          name: web_font_set
+          label: 网站字体
+          value: system
+          options:
+            - label: 系统字体（无需加载，速度最快）
+              value: system
+            - label: 自定义字体（外部链接）
+              value: manual
+            - label: 默认字体
+              value: defaultfont
+            - label: MiSans 字体（CDN）
+              value: MiSans
+
+        - $formkit: text
+          if: "$get(web_font_set).value === manual"
+          name: web_font
+          label: 字体链接地址
+          value: ""
+
+        - $formkit: text
+          if: "$get(web_font_set).value === manual"
+          name: web_font_name
+          label: 字体名称（font-family 值）
+          value: ""
+
+        - $formkit: attachment
+          if: "$get(web_font_set).value === defaultfont"
+          name: web_font_default
+          label: 默认网站字体
+          value: "/themes/theme-Ying/assets/font/result.css"
+
+        - $formkit: attachment
+          if: "$get(web_font_set).value === MiSans"
+          name: web_font_MiSans
+          label: Mi Sans VF 字体（CDN 链接）
+          value: "https://cdn-font.hyperos.mi.com/font/css?family=MiSans_VF:VF:Chinese_Simplify,Latin&display=swap"
+
+    - group: info_card
+      label: 信息面板
+      formSchema:
+        - $formkit: text
+          name: web_info_img
+          label: 个人头像
+
+        - $formkit: text
+          name: web_info_text
+          label: 个人签名
+          value: 相逢何必曾相识
+
+        - $formkit: repeater
+          name: socials
+          label: 社交账号
+          value: []
+          max: 6
+          min: 1
+          children:
+            - $formkit: select
+              name: enabled
+              label: 是否启用
+              options:
+                - label: 是
+                  value: true
+                - label: 否
+                  value: false
+            - $formkit: text
+              if: "$value.enabled === true"
+              name: icon
+              label: 图标类名
+              help: 输入图标类名（不含 icon- 前缀），如 ri-bilibili-fill、ri-github-fill、ri-wechat-fill 等
+
+            - $formkit: text
+              if: "$value.enabled === true"
+              name: title
+              label: 平台名称
+
+            - $formkit: text
+              if: "$value.enabled === true"
+              name: url
+              label: 链接地址
+
+    - group: post_settings
+      label: 文章设置
+      formSchema:
+        - $formkit: select
+          name: post_copyright_enabled
+          label: 启用文章版权声明
+          value: open
+          options:
+            - label: 是
+              value: open
+            - label: 否
+              value: off
+        - $formkit: select
+          name: post_comment_enabled
+          label: 启用评论关闭提示
+          value: open
+          options:
+            - label: 是
+              value: open
+            - label: 否
+              value: off
+
+    - group: footer_card
+      label: 页脚设置
+      formSchema:
+        - $formkit: text
+          name: footer_time
+          label: 建站日期
+          value: 2018
+
+        - $formkit: text
+          name: footer_icp
+          label: ICP 备案号
+
+        - $formkit: text
+          name: footer_ga
+          label: 公安备案号
+
+        - $formkit: text
+          name: footer_copyright_name
+          label: 版权作者信息
+          value: "Ming"
+
+        - $formkit: text
+          name: footer_copyright_url
+          label: 版权作者链接
+          value: "https://11ao.cn/"
+
+    - group: equipment_card
+      label: 我的设备
+      formSchema:
+        - $formkit: select
+          name: myitem
+          label: 个人设备信息页
+          value: item_off
+          options:
+            - label: 关闭
+              value: item_off
+            - label: 开启
+              value: item_open
+
+        - $formkit: repeater
+          if: "$get(myitem).value === item_open"
+          name: features
+          label: 设备列表
+          value: []
+          max: 20
+          children:
+            - $formkit: text
+              name: title
+              label: 设备名称
+
+            - $formkit: text
+              name: link
+              label: 设备链接
+
+            - $formkit: attachment
+              name: image
+              label: 设备图片
+
+            - $formkit: text
+              name: description
+              label: 设备描述

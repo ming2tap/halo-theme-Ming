@@ -1,0 +1,27 @@
+apiVersion: theme.halo.run/v1alpha1
+kind: Theme
+metadata:
+  name: theme-Ming
+spec:
+  customTemplates:
+    page:
+      - name: 我的设备
+        description: 用于展示个人设备
+        screenshot: 
+        file: equipment.html
+  displayName: Ming
+  author:
+    name: Ming
+    website: https://11ao.cn/
+  description: 一个简约而不简单的主题
+  logo: https://upyun.breezecloud.cn/CDN/Ying/ico/logo.png
+  homepage: https://github.com/ming2tap/halo-theme-Ming
+  repo: https://github.com/ming2tap/halo-theme-Ming.git
+  issues: https://github.com/ming2tap/halo-theme-Ming/issues
+  settingName: "theme-Ming-setting"
+  configMapName: "theme-Ming-configMap"
+  version: 2.0.0
+  requires: 2.20.0
+  license:
+    - name: "GPL-3.0"
+      url: "https://www.gnu.org/licenses/gpl-3.0.html"
