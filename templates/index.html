@@ -8,7 +8,8 @@
       th:attr="style=|--delay:${iterStat.index * 0.05}s;|">
       <div th:if="${theme.config.layout.post_cover_set == 'open' and !#strings.isEmpty(post.spec.cover)}"
         class="overflow-hidden size-11 rounded-sm">
-        <img loading="lazy"
+        <img loading="lazy" decoding="async"
+          th:attr="fetchpriority=${iterStat.index == 0 ? 'high' : null}"
           class="w-full h-full object-cover" style="border-radius: inherit;"
           th:src="${thumbnail.gen(post.spec.cover, 's')}"
           sizes="(max-width: 1600px) 100vw, 1600px"
