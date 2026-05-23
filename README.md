@@ -26,7 +26,7 @@
 |--------|------|
 | **精简模块** | 删除"个人装备"模块，减少不必要的设置项和模板文件 |
 | **背景设置优化** | 简化背景选项逻辑，纯色模式固定为 `#f5f5f5` |
-
+| **页脚信息** | 更新版权信息为 Ming，链接改为 https://11ao.cn |
 
 ### 代码质量
 
@@ -71,7 +71,11 @@
 
 ## 安装方式
 
-### 方式一：GitHub 安装
+### 方式一：应用市场
+
+前往 Halo 官网应用市场下载并安装
+
+### 方式二：GitHub 安装
 
 ```bash
 # 下载主题包
@@ -80,7 +84,7 @@ git clone https://github.com/ming2tap/halo-theme-Ming.git
 # 或将 halo-theme-Ming.zip 上传到 themes 目录
 ```
 
-### 方式二：直接上传
+### 方式三：直接上传
 
 在 Halo 后台 → 主题 → 安装主题，上传 `halo-theme-Ming.zip`
 
@@ -100,7 +104,36 @@ git clone https://github.com/ming2tap/halo-theme-Ming.git
 
 ---
 
+## 更新日志
+
+### v2.0.1 (2026-05-23)
+
+#### 优化修复
+
+| 类别 | 内容 | 说明 |
+|------|------|------|
+| **Bug** | 修复默认字体路径引用错误 | `settings.yaml` 中遗留的 `theme-Ying` 路径改为 `theme-Ming` |
+| **Bug** | 引入 Alpine.js CDN | `moments.html` 依赖 Alpine.js 但未加载，现已通过 CDN 引入 |
+| **Bug** | 实现图片懒加载 | `lazy/` 目录为空导致 `lazyload` class 无效，现已用 IntersectionObserver 实现 |
+| **Bug** | 修复 PJAX 过度拦截链接 | 原 `elements: 'a'` 会拦截外部链接、锚点等，现排除 `http://`、`https://`、`#`、`javascript:`、`target="_blank"` |
+| **性能** | 暗色模式防闪烁 | 在 `<head>` 中内联执行暗色模式检测，避免页面渲染后闪烁 |
+| **性能** | pjax.min.js 异步加载 | 原同步加载阻塞首屏渲染，现添加 `defer` |
+| **性能** | scroll 事件节流 | 返回顶部按钮的 scroll 监听改为 rAF 节流 |
+| **暗色模式** | 修复暗色模式下背景覆盖 | 内联 `background-image` 在暗色模式下被强制重置，避免图片背景刺眼 |
+| **代码质量** | 清理 10 个模板中的废弃参数 | 移除 Ying 主题遗留的 `hero`/`footer` 参数 |
+| **代码质量** | 删除未使用的 CSS 类 | `.hbefore`、`.postnext` 在模板中无任何引用 |
+| **代码质量** | 提取时间格式化片段 | `index.html`、`post.html` 中重复的时间格式逻辑提取到 `modules/time.html` |
+
+#### 已知待优化
+
+| 类别 | 内容 | 说明 |
+|------|------|------|
+| **性能** | output.css 体积过大 (102KB) | Tailwind v4 编译产物包含大量未使用的 utility class，需在构建配置中设置正确的 `content` 路径并重新编译 |
+
+---
+
 ## 链接
 
 - [GitHub 仓库](https://github.com/ming2tap/halo-theme-Ming)
 - [问题反馈](https://github.com/ming2tap/halo-theme-Ming/issues)
+- [作者网站](https://11ao.cn)

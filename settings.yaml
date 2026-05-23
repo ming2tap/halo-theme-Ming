@@ -85,7 +85,7 @@ spec:
           if: "$get(web_font_set).value === defaultfont"
           name: web_font_default
           label: 默认网站字体
-          value: "/themes/theme-Ying/assets/font/result.css"
+          value: "/themes/theme-Ming/assets/font/result.css"
 
         - $formkit: attachment
           if: "$get(web_font_set).value === MiSans"

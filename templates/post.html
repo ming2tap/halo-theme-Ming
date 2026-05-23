@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org"
-    th:replace="~{modules/layout :: html(title = ${post.spec.title} + ' - ' + ${site.title}, content = ~{::content}, head = null,)}">
+    th:replace="~{modules/layout :: html(title = ${post.spec.title} + ' - ' + ${site.title}, content = ~{::content}, head = null)}">
 <th:block th:fragment="content">
     <div class="post-content">
         <article>
             <h1 class="post-title" th:text="${post.spec.title}"></h1>
-            <div class="meta text-xs my-2 text-gray-400"><span><span
-                        th:if="${theme.config.layout.post_time_set == 'open'}"
-                        th:data-date="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}" class="ex-time"></span><span
-                        th:unless="${theme.config.layout.post_time_set == 'open'}"
-                        th:text="${#dates.format(post.spec.publishTime,'MMMM dd, yyyy')}"></span> /
+            <div class="meta text-xs my-2 text-gray-400"><span><th:block th:replace="~{modules/time :: postTime(
+                        dateStr = ${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')},
+                        displayText = ${#dates.format(post.spec.publishTime, 'MMMM dd, yyyy')},
+                        cssClass = 'ex-time'
+                      )}"></th:block> /
                     [[${post.owner.displayName}]] / [[${post.stats.visit}]]阅读 / [[${post.stats.comment}]]评论</span><span
                     th:if="${not #lists.isEmpty(post.categories)}">/ 分类:
                     <a class="hover:underline text-black dark:text-gray-300" th:each="category : ${post.categories}"

@@ -75,6 +75,11 @@ html {
     --tag-tx: #00a6f4;
 }
 
+:root.dark body {
+    background-color: #1f2937 !important;
+    background-image: none !important;
+}
+
 blockquote {
     background-color: var(--blockquote-bg);
     border-radius: 4px;

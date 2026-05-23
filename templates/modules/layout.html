@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <title th:text="${#strings.defaultString(title, site.title)}"></title>
 
+<!-- 防止暗色模式闪烁：在页面渲染前设置 dark class -->
+<script>
+  (function() {
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+
 <!-- 主题样式 -->
 <link rel="stylesheet" th:href="@{/themes/theme-Ming/assets/css/output.css}" />
 <link rel="stylesheet" th:href="@{/themes/theme-Ming/assets/css/main.css}" />
@@ -12,8 +21,9 @@
 <!-- 自定义图标 (本地) -->
 <link rel="stylesheet" th:href="@{/themes/theme-Ming/assets/css/iconfont.css}" />
 
-<script th:src="@{/themes/theme-Ming/assets/js/pjax/pjax.min.js}"></script>
+<script th:src="@{/themes/theme-Ming/assets/js/pjax/pjax.min.js}" defer></script>
 <script th:src="@{/themes/theme-Ming/assets/js/init.js}" defer></script>
+<script defer src="https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js"></script>
 <th:block th:if="${head != null}"><th:block th:replace="${head}"/></th:block>
 </head>
 <body th:style="${theme.config.layout.header_background_type == 'manual' ? 'background-color: #f5f5f5' : (theme.config.layout.header_background_type == 'image' ? 'background-image: url(' + theme.config.layout.header_background_image + '); background-size: cover; background-attachment: fixed;' : 'background-image: url(/themes/theme-Ming/assets/images/texture.png); background-repeat: repeat;')}" class="bg-gray-100 flex dark:!bg-gray-800/80 dark:text-gray-200 page-container">

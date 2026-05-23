@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:replace="~{modules/layout :: html(title = '作者归档：' + ${author.spec.displayName} +  ' - ' + ${site.title}, hero = null, content = ~{::content}, head = null, footer = null,)}"
+<html th:replace="~{modules/layout :: html(title = '作者归档：' + ${author.spec.displayName} +  ' - ' + ${site.title}, content = ~{::content}, head = null)}"
 xmlns:th="https://www.thymeleaf.org">
 <th:block th:fragment="content">
     <div class="cate-content uk-animation-fade" itemprop="articleBody">

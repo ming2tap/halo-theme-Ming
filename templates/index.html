@@ -15,9 +15,11 @@
           th:alt="${post.spec.title}">
       </div>
       <div class="flex grow flex-col justify-between mb-5">
-        <div th:if="${theme.config.layout.post_time_set == 'open'}" th:data-date="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}" class="time text-xs text-zinc-400 mb-0.5"></div>
-        <div th:unless="${theme.config.layout.post_time_set == 'open'}"
-          th:text="${#dates.format(post.spec.publishTime,'MMMM dd, yyyy')}" class="text-xs text-zinc-400 mb-0.5"></div>
+        <th:block th:replace="~{modules/time :: postTime(
+          dateStr = ${#dates.format(post.spec.publishTime, 'yyyy-MM-dd')},
+          displayText = ${#dates.format(post.spec.publishTime, 'MMMM dd, yyyy')},
+          cssClass = 'time text-xs text-zinc-400 mb-0.5'
+        )}"></th:block>
         <a th:href="@{${post.status.permalink}}" class="hover:underline">
           <span th:if="${post.spec.pinned}" th:text="[置顶]" class="text-red-500"></span>
           <span th:text="${post.spec.title}"></span></a>

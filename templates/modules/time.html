@@ -1,0 +1,4 @@
+<th:block th:fragment="postTime(dateStr, displayText, cssClass)">
+  <span th:if="${theme.config.layout.post_time_set == 'open'}" th:attr="data-date=${dateStr}" th:class="${cssClass}"></span>
+  <span th:unless="${theme.config.layout.post_time_set == 'open'}" th:text="${displayText}" th:class="${cssClass}"></span>
+</th:block>
