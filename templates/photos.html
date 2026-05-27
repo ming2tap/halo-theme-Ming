@@ -7,14 +7,14 @@
     <h2 class="item-a" th:text="|${group.spec.displayName}(${group.status.photoCount})|"></h2>
     <div class="medium-box">
         <div class="medium-inner" th:each="photo : ${group.photos}">
-            <img
+            <img loading="lazy" decoding="async"
             class="lazyload medium-item-box"
             th:src="${theme.config.layout.web_loading_img}"
             srcset=""
             th:data-srcset="|${thumbnail.gen(photo.spec.url, 's')} 400w,
                         ${thumbnail.gen(photo.spec.url, 'm')} 800w,
                         ${thumbnail.gen(photo.spec.url, 'l')} 1200w|"
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            sizes="(max-width: 720px) 100vw, 720px"
             th:alt="${photo.spec.displayName}"
           />
           </div>

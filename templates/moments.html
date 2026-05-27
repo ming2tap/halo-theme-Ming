@@ -20,9 +20,10 @@
                     <div class="flex items-center">
                         <a class="hover:underline"
                             th:with="authorPage=${#strings.append('/authors/',moment.owner?.name)}"
-                            th:href="@{${authorPage}}"><img class="size-11 rounded-sm mr-1.5"
+                            th:href="@{${authorPage}}"><img fetchpriority="high" decoding="async" class="size-11 rounded-sm mr-1.5"
                                 th:with="defaultAvatar=${#theme.assets('/images/logo.png')}, avatarUri=${#strings.defaultString(moment.owner?.avatar, defaultAvatar)}"
                                 th:src="${avatarUri}" th:srcset="|${thumbnail.gen(avatarUri, 's')} 400w|"
+                                width="44" height="44"
                                 th:alt="|@${moment.owner?.name}|" /></a>
                         <div class="flex flex-col justify-between">
                             <a class="hover:underline"
@@ -41,11 +42,11 @@
                     <div th:if="${not #lists.isEmpty(content.medium)}" class="medium-box">
                     <th:block th:if="${not #lists.isEmpty(content.medium)}" th:each="momentItem : ${content.medium}">
                             <div class="medium-inner">
-                                <img class="lazyload medium-item-box" th:if="${momentItem.type.name == 'PHOTO'}"
+                                <img loading="lazy" decoding="async" class="lazyload medium-item-box" th:if="${momentItem.type.name == 'PHOTO'}"
                                      th:alt="${momentItem?.url}"
                                      th:data-src="${momentItem?.url}" th:src="${theme.config.layout.web_loading_img}" srcset=""
                                     th:data-srcset="|${thumbnail.gen(momentItem?.url, 's')} 400w|"
-                                    sizes="(max-width: 1600px) 100vw, 1600px" />
+                                    sizes="(max-width: 720px) 100vw, 720px" />
                                 <video class="lazyload medium-item-box" th:if="${momentItem.type.name == 'VIDEO'}"
                                      th:src="${momentItem.url}" aria-label="动态视频"></video>
                                 <audio class="lazyload medium-item-box" th:if="${momentItem.type.name == 'AUDIO'}"

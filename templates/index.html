@@ -12,7 +12,8 @@
           th:attr="fetchpriority=${iterStat.index == 0 ? 'high' : null}"
           class="w-full h-full object-cover" style="border-radius: inherit;"
           th:src="${thumbnail.gen(post.spec.cover, 's')}"
-          sizes="(max-width: 1600px) 100vw, 1600px"
+          width="44" height="44"
+          sizes="44px"
           th:alt="${post.spec.title}">
       </div>
       <div class="flex grow flex-col justify-between mb-5">

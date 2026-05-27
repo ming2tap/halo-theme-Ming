@@ -139,6 +139,12 @@ blockquote:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
     transition: transform .3s ease-in-out;
     vertical-align: middle;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 300px;
+}
+
+.post-content img[loading="lazy"] {
+    background-color: #f5f5f5;
 }
 
 table {

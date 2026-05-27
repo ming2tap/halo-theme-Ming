@@ -106,6 +106,28 @@ git clone https://github.com/ming2tap/halo-theme-Ming.git
 
 ## 更新日志
 
+### v2.0.4 (2026-05-27)
+
+#### 性能优化
+
+| 类别 | 内容 | 说明 |
+|------|------|------|
+| **字体预加载** | 关键字体资源预加载 | 对高频使用的中文字体分包添加`preload`，减少首次渲染延迟 |
+| **CSS 异步加载** | 非关键 CSS 延迟加载 | `output.css`和 `main.css` 使用`media="print"`技巧，避免阻塞渲染 |
+| **JS 加载顺序** | 优化依赖顺序 | Alpine.js 必须在 init.js 之前加载，确保依赖可用 |
+| **图片布局稳定** | 添加尺寸声明 | 所有图片添加 `width/height`，防止布局偏移（CLS） |
+| **图片尺寸优化** | 优化 sizes 属性 | 文章缩略图 `sizes="44px"`，动态图片`sizes="720px"`，避免加载过大图片 |
+| **Loading 优化** | SVG 替代 GIF | 占位图从 141KB GIF 改为 0.5KB SVG，减少 99.6% 体积 |
+| **内容可见性** | CSS 性能优化 | 文章图片添加`content-visibility: auto`和`contain-intrinsic-size`，提升滚动性能 |
+| **DNS 预解析优化** | preconnect 改进 | 添加`crossorigin`属性，提升外部资源连接速度 |
+
+**性能提升预估**：
+- 首次内容绘制（FCP）提升 15-25%
+- 累计布局偏移（CLS）< 0.1
+- loading 占位图体积减少 99.6%（141KB → 0.5KB）
+
+---
+
 ### v2.0.3 (2026-05-23)
 
 #### 性能优化

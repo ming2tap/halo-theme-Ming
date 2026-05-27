@@ -4,7 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 <meta name="dns-prefetch" content="//unpkg.com" />
-<meta name="preconnect" content="//unpkg.com" />
+<meta name="preconnect" href="//unpkg.com" />
+<link rel="preconnect" href="//unpkg.com" crossorigin />
 <title th:text="${#strings.defaultString(title, site.title)}"></title>
 
 <!-- 防止暗色模式闪烁：在页面渲染前设置 dark class -->
@@ -16,16 +17,20 @@
   })();
 </script>
 
-<!-- 主题样式 -->
+<!-- 预加载图标字体 -->
+<link rel="preload" as="font" type="font/woff2" th:href="@{/themes/theme-Ming/assets/css/iconfont.woff2}" crossorigin />
+
+<!-- 主题样式：同步加载保证首屏立即显示 -->
 <link rel="stylesheet" th:href="@{/themes/theme-Ming/assets/css/output.css}" />
 <link rel="stylesheet" th:href="@{/themes/theme-Ming/assets/css/main.css}" />
 
 <!-- 自定义图标 (本地) -->
 <link rel="stylesheet" th:href="@{/themes/theme-Ming/assets/css/iconfont.css}" />
 
+<!-- JS 加载顺序优化：Alpine.js 必须在 init.js 之前 -->
+<script th:src="@{/themes/theme-Ming/assets/js/alpine.min.js}" defer></script>
 <script th:src="@{/themes/theme-Ming/assets/js/pjax/pjax.min.js}" defer></script>
 <script th:src="@{/themes/theme-Ming/assets/js/init.js}" defer></script>
-<script th:src="@{/themes/theme-Ming/assets/js/alpine.min.js}" defer></script>
 <th:block th:if="${head != null}"><th:block th:replace="${head}"/></th:block>
 </head>
 <body th:style="${theme.config.layout.header_background_type == 'manual' ? 'background-color: #f5f5f5' : (theme.config.layout.header_background_type == 'image' ? 'background-image: url(' + theme.config.layout.header_background_image + '); background-size: cover; background-attachment: fixed;' : 'background-image: url(/themes/theme-Ming/assets/images/texture.png); background-repeat: repeat;')}" class="bg-gray-100 flex dark:!bg-gray-800/80 dark:text-gray-200 page-container">

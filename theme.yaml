@@ -14,7 +14,7 @@ spec:
   issues: https://github.com/ming2tap/halo-theme-Ming/issues
   settingName: "theme-Ming-setting"
   configMapName: "theme-Ming-configMap"
-  version: 2.0.0
+  version: 2.0.4
   requires: 2.20.0
   license:
     - name: "GPL-3.0"
