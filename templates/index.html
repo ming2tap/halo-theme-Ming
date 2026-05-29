@@ -28,8 +28,8 @@
       </div>
     </div>
     <ul th:if="${posts.hasPrevious() || posts.hasNext()}" class="flex justify-between pt-2">
-      <li th:if="${posts.hasPrevious()}"><a th:href="@{${posts.prevUrl}}"><span>上一页</span></a></li>
       <li th:if="${posts.hasNext()}"><a th:href="@{${posts.nextUrl}}"><span>下一页</span></a></li>
+      <li th:if="${posts.hasPrevious()}"><a th:href="@{${posts.prevUrl}}"><span>上一页</span></a></li>
     </ul>
   </div>
 </th:block>
